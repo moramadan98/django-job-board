@@ -6,3 +6,5 @@ admin.site.register(Job)
 admin.site.register(Categoty)
 
 admin.site.register(Qualification)
+
+admin.site.register(Apply_job)
