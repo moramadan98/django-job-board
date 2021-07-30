@@ -3,7 +3,6 @@ from django.shortcuts import render
 from .models import *
 from django.http import HttpResponseRedirect
 from .form import *
-from django.core.exceptions import ValidationError
 from django.contrib import messages
 # Create your views here.
 
@@ -35,3 +34,23 @@ def job_details(request , slug):
         'form':Applyform
     }
     return render(request , 'pages/job_details.html' ,context)    
+
+
+
+
+def post_job(request):
+    if request.method == 'POST':
+        jobdata = Jobform(request.POST,request.FILES)
+        if jobdata.is_valid():
+            jobdata.save()
+            messages.success(request, 'Post successfully.')
+            return HttpResponseRedirect(request.path_info)
+        else:
+            messages.error(request , 'Invalid input')
+            return HttpResponseRedirect(request.path_info)
+    context ={
+    
+        'form':Jobform
+    }
+
+    return render(request , 'pages/postjob.html' ,context)        

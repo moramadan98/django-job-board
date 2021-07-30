@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+<!-- bradcam_area  -->
+<div class="bradcam_area bradcam_bg_1">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="bradcam_text">
+                    <h3>Post Job</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/ bradcam_area  -->
+
+<div class="job_details_area">
+    <div class="container">
+        {% include "parts/messages.html" %}
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="apply_job_form white-bg">
+                    <h4>Post new job</h4>
+
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <div class="input_field">
+                                    {{form.title}}
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="input_field single_field">
+                                    {{form.jobtype}}
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="input_field">
+                                    {{form.vacancy}}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input_field">
+                                    {{form.experience}}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input_field">
+                                    {{form.salary}}
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="input_field">
+                                    {{form.categoty}}
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <button type="button" id="inputGroupFileAddon03"><i class="fa fa-cloud-upload"
+                                                aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                    <div class="custom-file">
+                                        {{form.job_img}}
+                                        <label class="custom-file-label" for="inputGroupFile03">Upload Image</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input_field">
+                                    {{form.description}}
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="input_field">
+                                    {{form.benefits}}
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="input_field">
+                                    {{form.qualification}}
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-12">
+                                <div class="submit_btn">
+                                    <button class="boxed-btn3 w-100" type="submit">Post Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

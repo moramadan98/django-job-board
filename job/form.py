@@ -15,12 +15,32 @@ class Applyform(forms.ModelForm):
             'coverletter': forms.Textarea(attrs={'placeholder':'Coverletter'}),
         }
         
-        labels ={
-            'name':'',
-            'email':'',
-            'link':'',
-            'cv':'',
-            'coverletter':'',
+        # labels ={
+        #     'name':'',
+        #     'email':'',
+        #     'link':'',
+        #     'cv':'',
+        #     'coverletter':'',
+        # }
+
+
+
+class Jobform(forms.ModelForm):
+   
+    class Meta:
+        model= Job
+        fields = ['title','jobtype','vacancy','experience','salary','job_img','description','benefits','qualification','categoty' ]
+        widgets ={
+            'title': forms.TextInput(attrs={'placeholder':'Job title'}),
+            'jobtype': forms.Select(attrs={ 'class':'wide'} ),
+            'vacancy': forms.NumberInput(attrs={'placeholder':'vacancy'}),
+            'experience':forms.NumberInput(attrs={'placeholder':'experience'}),
+            'salary':forms.NumberInput(attrs={'placeholder':'salary'}),
+            'categoty': forms.Select(attrs={'class':'wide'}),
+            'job_img': forms.FileInput(attrs={'class':'custom-file-input'}),
+            'description': forms.Textarea(attrs={'placeholder':'Description'}),
+            'benefits': forms.Textarea(attrs={'placeholder':'Benefits'}),
+            'qualification': forms.Textarea(attrs={'placeholder':'Qualification'}),
         }
 
-    
+        
