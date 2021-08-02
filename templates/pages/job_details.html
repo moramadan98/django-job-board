@@ -20,7 +20,9 @@
 <div class="job_details_area">
     <div class="container">
         <div class="row">
+
             <div class="col-lg-8">
+                {% include "parts/messages.html" %}
                 <div class="job_details_header">
                     <div class="single_jobs white-bg d-flex justify-content-between">
                         <div class="jobs_left d-flex align-items-center">
@@ -68,7 +70,7 @@
                 </div>
                 <div class="apply_job_form white-bg">
                     <h4>Apply for the job</h4>
-                    {% include "parts/messages.html" %}
+
                     <form method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="row">
